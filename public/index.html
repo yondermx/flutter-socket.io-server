@@ -23,15 +23,20 @@
             console.log('Perdimos conexion  al servidor')
         });
 
-        socket.emit('mensaje',{nombre: 'fernando'})
+        
+
+        socket.emit('mensaje',{nombre: 'fernando'}) //EMITE AL SERVIDOR
 
 
-        socket.on('mensaje', function(payload){
+        socket.on('fromServer', function(payload){
 
             console.log('Escuchando', payload);
-        }
-        
-        )
+        })
+
+        socket.on('active-bands', function(bandas){
+            console.clear;
+            console.table( bandas);
+        }      )
 
     </script>
 </body>
